@@ -2,17 +2,12 @@
   <div id="app">
     <Cart/>
     <ProductList/>
-
-    <br><br><br><br><br><br><br><br><br>
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 
 import store from './store'
-import HelloWorld from './components/HelloWorld.vue'
 import Cart from './components/Cart.vue'
 import ProductList from './components/ProductList.vue'
 
@@ -20,7 +15,6 @@ export default {
   name: 'app',
   store,
   components: {
-    HelloWorld,
     Cart,
     ProductList
   }
