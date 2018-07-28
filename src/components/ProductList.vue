@@ -2,7 +2,7 @@
   <section class="product-list">
     <h2>Product List</h2>
     <Product
-      v-bind:key="product.name"
+      v-bind:key="product.id"
       v-for="product in this.products"
       :product="product"
     >

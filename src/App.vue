@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 import store from './store'
 import Cart from './components/Cart.vue'
 import ProductList from './components/ProductList.vue'
