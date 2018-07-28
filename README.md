@@ -26,3 +26,8 @@ npm run build
 ```
 npm run lint
 ```
+
+## ToDo and Ideas
+
+- Unit tests
+- Routing
