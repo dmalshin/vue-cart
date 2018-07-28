@@ -11,11 +11,14 @@
 
 <script>
 
+import store from './store'
 import HelloWorld from './components/HelloWorld.vue'
 import Cart from './components/Cart.vue'
 import ProductList from './components/ProductList.vue'
+
 export default {
   name: 'app',
+  store,
   components: {
     HelloWorld,
     Cart,

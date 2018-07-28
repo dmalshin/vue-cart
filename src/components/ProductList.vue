@@ -17,22 +17,9 @@ export default {
   components: {
     Product
   },
-  data() {
-    return {
-      products: [
-        {
-          name: 'Product 1',
-          price: 36.99
-        },
-        {
-          name: 'Product 2',
-          price: 9.99
-        },
-        {
-          name: 'Product 3',
-          price: 15.49
-        },
-      ]
+  computed: {
+    products() {
+      return this.$store.state.products
     }
   }
 }

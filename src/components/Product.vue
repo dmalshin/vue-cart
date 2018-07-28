@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     add() {
-      console.log('add');
+      this.$store.commit('addProduct')
     }
   }
 }
