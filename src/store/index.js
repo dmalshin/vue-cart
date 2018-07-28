@@ -24,6 +24,7 @@ export default new Vuex.Store({
       },
     ]
   },
+
   getters: {
     productsInCartCount: state => {
       return Object
@@ -44,13 +45,27 @@ export default new Vuex.Store({
       }))
     }
   },
+
   mutations: {
-    addProduct: (state, productId) => {
+    addProduct: (state, id) => {
       state.cart = {
         ...state.cart,
-        [productId]: state.cart[productId] ? state.cart[productId] + 1 : 1
+        [id]: state.cart[id] ? state.cart[id] + 1 : 1
       }
+    },
+    removeProduct: (state, id) => {
+      // Enabling vuex to detect changes
+      const tempObj = state.cart;
+      delete tempObj[id];
+      state.cart = {
+        ...tempObj
+      }
+    },
+    incrementProductQuantity: (state, id) => {
+      state.cart[id] = state.cart[id] + 1
+    },
+    decrementProductQuantity: (state, id) => {
+      state.cart[id] = state.cart[id] - 1
     }
   }
 })
-

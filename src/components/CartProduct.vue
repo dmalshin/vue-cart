@@ -3,9 +3,13 @@
     <td>{{ this.product.name }}</td>
     <td>${{ this.product.price }}</td>
     <td>{{ this.product.quantity }}
-      <button type="button">+</button>
-      <button type="button">-</button>
-      <button type="button">⨯</button>
+      <button type="button" @click="incrementProductQuantity">+</button>
+      <button
+        type="button"
+        @click="decrementProductQuantity"
+        v-if="this.product.quantity > 1"
+      >-</button>
+      <button type="button" @click="removeProduct">⨯</button>
     </td>
     <td>
       ${{ this.product.price * this.product.quantity }}
@@ -20,9 +24,15 @@ export default {
     product: Object
   },
   methods: {
-    // add() {
-    //   this.$store.commit('addProduct', this.product.id)
-    // }
+    removeProduct() {
+      this.$store.commit('removeProduct', this.product.id)
+    },
+    incrementProductQuantity() {
+      this.$store.commit('incrementProductQuantity', this.product.id)
+    },
+    decrementProductQuantity() {
+      this.$store.commit('decrementProductQuantity', this.product.id)
+    }
   }
 }
 </script>

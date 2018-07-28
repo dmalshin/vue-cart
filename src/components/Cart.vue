@@ -24,7 +24,7 @@
       </tbody>
     </table>
 
-    <CartTotal></CartTotal>
+    <CartTotal v-if="this.products.length"></CartTotal>
   </section>
 </template>
 
