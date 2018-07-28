@@ -66,6 +66,9 @@ export default new Vuex.Store({
     },
     decrementProductQuantity: (state, id) => {
       state.cart[id] = state.cart[id] - 1
+    },
+    emptyCart: state => {
+      state.cart = {}
     }
   }
 })

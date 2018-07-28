@@ -6,6 +6,14 @@
       The cart is empty
     </div>
 
+    <button
+      type="button"
+      v-if="this.products.length"
+      @click="empty"
+    >
+      Empty Cart
+    </button>
+
     <table v-if="this.products.length">
       <thead>
         <tr>
@@ -40,6 +48,11 @@ export default {
   computed: {
     products() {
       return this.$store.getters.productsInCart
+    }
+  },
+  methods: {
+    empty() {
+      this.$store.commit('emptyCart')
     }
   }
 }
