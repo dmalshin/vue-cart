@@ -1,13 +1,18 @@
 <template>
   <section class="cart">
     <h2>Cart</h2>
-    <table>
+
+    <div v-if="!this.products.length">
+      The cart is empty
+    </div>
+
+    <table v-if="this.products.length">
       <thead>
         <tr>
-          <td>Product</td>
-          <td>Price</td>
-          <td>Quantity</td>
-          <td>Total</td>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
         </tr>
       </thead>
       <tbody>
@@ -18,27 +23,23 @@
         ></CartProduct>
       </tbody>
     </table>
-    <div>Products in cart: {{ productsInCartCount }}</div>
-    <div>Order Total: ${{ totalCartPrice }}</div>
+
+    <CartTotal></CartTotal>
   </section>
 </template>
 
 <script>
 import CartProduct from './CartProduct.vue';
+import CartTotal from './CartTotal.vue';
 export default {
   name: 'Cart',
   components: {
-    CartProduct
+    CartProduct,
+    CartTotal
   },
   computed: {
     products() {
-      return this.$store.state.products
-    },
-    productsInCartCount() {
-      return this.$store.getters.productsInCartCount
-    },
-    totalCartPrice() {
-      return this.$store.getters.totalCartPrice
+      return this.$store.getters.productsInCart
     }
   }
 }

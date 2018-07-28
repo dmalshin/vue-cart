@@ -36,6 +36,12 @@ export default new Vuex.Store({
         const productTotalSum = state.cart[id] * product.price
         return sum + productTotalSum
       }, 0)
+    },
+    productsInCart: state => {
+      return Object.keys(state.cart).map(id => ({
+        quantity: state.cart[id],
+        ...state.products.find(product => product.id === id)
+      }))
     }
   },
   mutations: {
