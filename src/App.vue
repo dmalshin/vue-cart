@@ -2,6 +2,8 @@
   <div id="app">
     <Cart/>
     <ProductList/>
+
+    <br><br><br><br><br><br><br><br><br>
     <img src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
