@@ -1,38 +1,41 @@
 <template>
-  <section class="cart">
+  <section>
     <h2>Cart</h2>
 
     <div v-if="!this.products.length">
       The cart is empty
     </div>
 
+
+    <div class="summary">
+      <table v-if="this.products.length">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <CartProduct
+            v-bind:key="product.id"
+            v-for="product in this.products"
+            :product="product"
+          ></CartProduct>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="total">
+      <CartTotal v-if="this.products.length"></CartTotal>
+    </div>
+
     <button
       type="button"
       v-if="this.products.length"
       @click="empty"
-    >
-      Empty Cart
-    </button>
-
-    <table v-if="this.products.length">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <CartProduct
-          v-bind:key="product.id"
-          v-for="product in this.products"
-          :product="product"
-        ></CartProduct>
-      </tbody>
-    </table>
-
-    <CartTotal v-if="this.products.length"></CartTotal>
+    >Empty Cart</button>
   </section>
 </template>
 
@@ -57,3 +60,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+section {
+  margin-bottom: 50px;
+}
+.summary,
+.total {
+  display: flex;
+  justify-content: center;
+}
+</style>

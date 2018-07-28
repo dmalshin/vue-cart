@@ -7,7 +7,7 @@
       </tr>
       <tr>
         <th>Order Total</th>
-        <td>${{ totalCartPrice }}</td>
+        <td class="total-sum">${{ totalCartPrice }}</td>
       </tr>
     </tbody>
   </table>
@@ -26,3 +26,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.total-sum {
+  font-weight: 700;
+}
+</style>

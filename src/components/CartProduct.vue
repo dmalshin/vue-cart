@@ -3,13 +3,30 @@
     <td>{{ this.product.name }}</td>
     <td>${{ this.product.price }}</td>
     <td>{{ this.product.quantity }}
-      <button type="button" @click="incrementProductQuantity">+</button>
       <button
         type="button"
+        class="minor-action"
+        @click="incrementProductQuantity"
+      >
+        +
+      </button>
+
+      <button
+        type="button"
+        class="minor-action"
         @click="decrementProductQuantity"
         v-if="this.product.quantity > 1"
-      >-</button>
-      <button type="button" @click="removeProduct">⨯</button>
+      >
+        -
+      </button>
+
+      <button
+        type="button"
+        class="minor-action"
+        @click="removeProduct"
+      >
+        ⨯
+      </button>
     </td>
     <td>
       ${{ this.product.price * this.product.quantity }}
